@@ -31,11 +31,11 @@ if (!$user || !$product) {
 
 
 if (isset($_POST['place_order'])) {
-    
-    
+
+
     $shipping_address = $_POST['address'] ?? $user['address'];
-    
-    
+
+
     $safe_address = $shipping_address;
     $total_price = $product['price'];
 
@@ -48,10 +48,10 @@ if (isset($_POST['place_order'])) {
             '$safe_address'
         )
     ";
-    
+
 
     if (mysqli_query($con, $query_insert_order)) {
-        echo "<div class='alert alert-success'>Order placement Success: " . mysqli_error($con) . "</div>";
+        echo "<script>window.location.href='order_confimation.php';</script>";
         exit;
     } else {
         echo "<div class='alert alert-danger'>Order placement failed: " . mysqli_error($con) . "</div>";
@@ -71,24 +71,27 @@ if (isset($_POST['place_order'])) {
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label>Full Name</label>
-                    <input type="text" name="full_name" class="form-control" disabled value="<?php echo $user['name'] ; ?>"> 
+                    <input type="text" name="full_name" class="form-control" disabled
+                        value="<?php echo $user['name']; ?>">
                 </div>
 
                 <div class="col-md-6 mb-3">
                     <label>Email</label>
-                    <input type="email" name="email" class="form-control" disabled value="<?php echo $user['email'] ; ?>">
+                    <input type="email" name="email" class="form-control" disabled
+                        value="<?php echo $user['email']; ?>">
                 </div>
 
                 <div class="col-md-6 mb-3">
                     <label>Shipping Address</label>
-                    <input type="text" name="address" class="form-control" required 
-                           value="<?php echo $_POST['address'] ?? $user['address']; ?>">
+                    <input type="text" name="address" class="form-control" required
+                        value="<?php echo $_POST['address'] ?? $user['address']; ?>">
                     <small class="form-text text-muted">Please confirm or update your delivery address.</small>
                 </div>
 
                 <div class="col-md-6 mb-3">
                     <label>Phone</label>
-                    <input type="text" name="work_phone" class="form-control" disabled value="<?php echo $user['phone'] ; ?>">
+                    <input type="text" name="work_phone" class="form-control" disabled
+                        value="<?php echo $user['phone']; ?>">
                 </div>
                 <div class="col-md-12 md-3">
 
@@ -103,7 +106,7 @@ if (isset($_POST['place_order'])) {
                     <label>Product Name</label>
                     <input type="text" class="form-control" disabled value="<?php echo $product['name']; ?>">
                 </div>
-                
+
                 <div class="col-md-6 mb-3">
                     <label>Product Price</label>
                     <input type="text" class="form-control" disabled value="<?php echo $product['price']; ?>">

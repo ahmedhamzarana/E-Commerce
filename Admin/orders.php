@@ -22,7 +22,7 @@ $query = "
 
 $result = mysqli_query($con, $query);
 
-if(!$result){
+if (!$result) {
     die("Query Failed: " . mysqli_error($con));
 }
 ?>
@@ -54,7 +54,7 @@ if(!$result){
                                     <th>Action</th>
                                 </tr>
 
-                                <?php while($row = mysqli_fetch_assoc($result)) : ?>
+                                <?php while ($row = mysqli_fetch_assoc($result)): ?>
 
                                     <tr>
                                         <td><?= $row['order_id'] ?></td>
@@ -68,8 +68,7 @@ if(!$result){
                                         <td><?= $row['order_status'] ?></td>
 
                                         <td>
-                                            <a 
-                                                href="order_details.php?order_id=<?= $row['order_id']; ?>" 
+                                            <a href="order_details.php?order_id=<?= $row['order_id']; ?>"
                                                 class="btn btn-primary">
                                                 Details
                                             </a>

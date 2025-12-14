@@ -26,7 +26,7 @@ include('header.php');
       </div>
       <div class="row">
          <?php
-         $query = "SELECT * FROM products";
+         $query = "SELECT * FROM `products` WHERE category = 'Cosmetics';";
          $result = mysqli_query($con, $query);
          $items = mysqli_fetch_all($result, MYSQLI_ASSOC);
          ?>
@@ -63,6 +63,7 @@ include('header.php');
             </div> -->
    </div>
 </section>
+<!-- end product section -->
 
 <?php
 include('footer.php');

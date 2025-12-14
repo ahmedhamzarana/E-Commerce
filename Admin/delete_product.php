@@ -10,6 +10,7 @@ if(isset($_GET['id'])){
     if(mysqli_query($con, $query)){
         echo "<script>alert('Product Deleted Successfully');
         window.location.href='add_products.php';</script>";
+        exit;
     } else {
         echo "Delete Error: " . mysqli_error($con);
     }

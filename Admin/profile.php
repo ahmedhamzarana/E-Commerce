@@ -23,7 +23,7 @@ include("header.php");
                     <div class="card profile-widget text-center mb-3">
                         <div class="profile-widget-header">
                             <img alt="image" src="assets/uploads/<?php echo $_SESSION['image']; ?>"
-                                 class="rounded-circle profile-widget-picture">
+                                class="rounded-circle profile-widget-picture">
                         </div>
                     </div>
 
@@ -40,14 +40,14 @@ include("header.php");
                                     <div class="form-group col-md-6 col-12">
                                         <label>First Name</label>
                                         <input type="text" name="name" class="form-control"
-                                               value="<?php echo $_SESSION['user_name']; ?>" required>
+                                            value="<?php echo $_SESSION['user_name']; ?>" required>
                                         <div class="invalid-feedback">Please fill in the first name</div>
                                     </div>
 
                                     <div class="form-group col-md-6 col-12">
                                         <label>Email</label>
                                         <input type="email" name="email" class="form-control"
-                                               value="<?php echo $_SESSION['email']; ?>" disabled>
+                                            value="<?php echo $_SESSION['email']; ?>" disabled>
                                     </div>
                                 </div>
 
@@ -59,14 +59,16 @@ include("header.php");
 
                                     <div class="form-group col-md-5 col-12">
                                         <label>Phone</label>
-                                        <input type="tel" name="phone" class="form-control" value="<?php echo $_SESSION['phone']; ?>">
+                                        <input type="tel" name="phone" class="form-control"
+                                            value="<?php echo $_SESSION['phone']; ?>">
                                     </div>
                                 </div>
 
                                 <div class="row mt-3">
                                     <div class="form-group col-12">
                                         <label>Password (Leave blank to keep current)</label>
-                                        <input type="password" name="password" class="form-control" placeholder="New Password">
+                                        <input type="password" name="password" class="form-control"
+                                            placeholder="New Password">
                                     </div>
                                 </div>
 
@@ -90,7 +92,8 @@ include("header.php");
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
 <?php
-    include("footer.php");
+include("footer.php");
 ?>

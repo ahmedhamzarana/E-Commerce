@@ -1,12 +1,12 @@
 <?php
 include('config.php');
 
-if(isset($_GET['id'])){
- $user_id = $_GET['id'];
+if (isset($_GET['id'])) {
+    $user_id = $_GET['id'];
     $query = "UPDATE users SET status=1 WHERE user_id='$user_id'";
     $result = mysqli_query($con, $query);
 
-    if($result){
+    if ($result) {
         echo "<script>
                 window.location.href='clints.php';
               </script>";

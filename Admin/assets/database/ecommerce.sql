@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2025 at 07:32 PM
+-- Generation Time: Dec 14, 2025 at 05:32 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -34,15 +34,8 @@ CREATE TABLE `orders` (
   `total_price` int(11) NOT NULL,
   `shipping_address` varchar(255) NOT NULL,
   `order_date` datetime DEFAULT current_timestamp(),
-  `order_status` enum('Pending','Processing','Shipped','Delivered') DEFAULT 'Pending'
+  `order_status` enum('pending','shipping','completed','cancelled') NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`order_id`, `user_id`, `product_id`, `total_price`, `shipping_address`, `order_date`, `order_status`) VALUES
-(2, 2, 0, 250, 'Korongi', '2025-12-12 22:41:54', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -66,7 +59,14 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `price`, `category`, `image`, `description`, `stock`, `created_at`) VALUES
-(0, 'Lipstick', 250.00, 'Cosmetics', 'client.jpg', 'makeup lipstick', 23, '2025-12-12 17:28:57');
+(1, 'foundation', 550.00, 'Cosmetics', 'foundation.png', 'makeup foundation', 10, '2025-12-14 12:07:04'),
+(2, 'primer', 260.00, 'Cosmetics', 'primer.png', 'makeup primer', 5, '2025-12-14 12:07:59'),
+(3, 'blush', 250.00, 'Cosmetics', 'blush.png', 'makeup blush', 3, '2025-12-14 12:08:49'),
+(4, 'maskara', 100.00, 'Cosmetics', 'maskara.png', 'makeup maskara', 20, '2025-12-14 12:09:34'),
+(5, 'jewellery', 800.00, 'Jewellery', 'jewellery.webp', 'jewellery', 2, '2025-12-14 12:35:15'),
+(6, 'Ring', 2000.00, 'Jewellery', 'ring.jpg', 'ring ', 5, '2025-12-14 12:38:05'),
+(7, 'women pendent', 400.00, 'Jewellery', 'women pendent.jpg', 'women pendent', 8, '2025-12-14 13:04:49'),
+(8, 'jhumka', 500.00, 'Jewellery', 'jhumka.jpg', 'earing jhumka', 10, '2025-12-14 13:05:44');
 
 -- --------------------------------------------------------
 
@@ -94,7 +94,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`user_id`, `name`, `email`, `password`, `phone`, `address`, `status`, `role`, `image`, `created_at`) VALUES
 (1, 'admin', 'admin@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '036764174687', 'Korongi', 1, 'admin', 'avatar-4.png', '2025-11-29 15:01:53'),
 (2, 'user', 'user@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '036764174687', 'Korongi', 1, 'user', 'avatar-1.png', '2025-11-29 15:03:52'),
-(3, 'hoor', 'hoor@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '1234567890', 'abcd', 1, 'user', 'arrival-bg.png', '2025-12-10 16:25:24');
+(3, 'hoor', 'hoor@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '1234567890', 'abcd', 0, 'user', 'arrival-bg.png', '2025-12-10 16:25:24');
 
 --
 -- Indexes for dumped tables
@@ -128,7 +128,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
