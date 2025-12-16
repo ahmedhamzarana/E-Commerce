@@ -21,6 +21,16 @@
       </div>
       <div class="row">
          <div class="col-md-4">
+            <div class="box ">
+               <div class="detail-box">
+                  <h5>
+                     Free Shiping
+                  </h5>
+                  <p>
+                     variations of passages of Lorem Ipsum available
+                  </p>
+               </div>
+            </div>
          </div>
          <div class="col-md-4">
             <div class="box ">
@@ -56,7 +66,7 @@
    <div class="container">
       <div class="box">
          <div class="arrival_bg_box">
-            <img src="images/arrival-bg.png" alt="">
+            <img src="assets/images/arrival-bg.png" alt="">
          </div>
          <div class="row">
             <div class="col-md-6 ml-auto">
