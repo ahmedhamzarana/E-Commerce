@@ -67,7 +67,7 @@ session_start();
                      <?php if (isset($_SESSION['user_id'])) { ?>
                         <a class="nav-link" href="order_confimation.php">Orders</a>
                      <?php } else { ?>
-                        <a class="nav-link" href="##">Orders</a>
+                        <a class="nav-link" hidden href="##">Orders</a>
                      <?php } ?>
                   </li>
                   <li class="nav-item dropdown">
@@ -94,7 +94,6 @@ session_start();
                            <li><a href="../Admin/register.php">Register</a></li>
                         </ul>
                      <?php } ?>
-                  </li>
                   </li>
                   <form class="form-inline">
                      <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
